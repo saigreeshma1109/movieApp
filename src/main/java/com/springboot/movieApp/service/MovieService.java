@@ -12,6 +12,7 @@ public interface MovieService {
 	public List<Movie> saveMultipleMovieDetails(List<Movie> movieList);
 	public Movie updateMovieDetails(Movie movie);
 	public boolean deleteMovie(int movieId);
+	public List<Movie> getMoviesByGenre(String genre);
 	
 	
  	

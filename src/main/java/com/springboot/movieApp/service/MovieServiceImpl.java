@@ -1,6 +1,8 @@
 package com.springboot.movieApp.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ public class MovieServiceImpl implements MovieService {
 	private MovieDao movieDao;
 	
 	private Movie movie;
+	
 	@Override
 	public Movie getMovieById(int movieId) {
 		// TODO Auto-generated method stub
@@ -69,6 +72,16 @@ public class MovieServiceImpl implements MovieService {
 		movieDao.deleteById(movieId);
 		return true;
 		}
+	}
+
+	@Override
+	public List<Movie> getMoviesByGenre(String genre) {
+		// TODO Auto-generated method stub
+		
+		List<Movie> movies=movieDao.getByGenre(genre);
+		movies.stream().filter(list->list.getGenre().equals(genre)).collect(Collectors.toList());
+		return movies;
+		
 	}
 
 	
