@@ -36,7 +36,17 @@ public class Movie {
 	@Column(name="duration", nullable=false)
 	private double duration;
 	
+	@Column(name="genre", nullable=false)
+	private String genre;
 	
+	
+	
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 	public int getMovieId() {
 		return movieId;
 	}
@@ -83,10 +93,10 @@ public class Movie {
 	public String toString() {
 		return "Movie [movieId=" + movieId + ", movieName=" + movieName + ", movieDescription=" + movieDescription
 				+ ", releaseDate=" + releaseDate + ", trailerUrl=" + trailerUrl + ", coverPhotoUrl=" + coverPhotoUrl
-				+ ", duration=" + duration + "]";
+				+ ", duration=" + duration + ", genre= "+ genre +"]";
 	}
 	public Movie(int movieId, String movieName, String movieDescription, LocalDateTime releaseDate, String trailerUrl,
-			String coverPhotoUrl, double duration) {
+			String coverPhotoUrl, double duration, String genre) {
 		super();
 		this.movieId = movieId;
 		this.movieName = movieName;
@@ -95,6 +105,7 @@ public class Movie {
 		this.trailerUrl = trailerUrl;
 		this.coverPhotoUrl = coverPhotoUrl;
 		this.duration = duration;
+		this.genre = genre;
 	}
 	
 	
